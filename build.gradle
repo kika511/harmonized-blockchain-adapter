@@ -1,0 +1,67 @@
+plugins {
+    id 'io.jmix' version '1.1.3'
+    id 'org.jetbrains.kotlin.jvm' version '1.6.0'
+    id 'java'
+}
+
+apply plugin: 'org.springframework.boot'
+
+jmix {
+    bomVersion = '1.1.1'
+}
+
+group = 'com.company'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://global.repo.jmix.io/repository/public'
+    }
+}
+
+ext {
+    camelVersion = "3.13.0"
+}
+
+dependencies {
+    implementation 'io.github.microutils:kotlin-logging:2.1.16'
+
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.6.0"
+    implementation 'io.jmix.core:jmix-core-starter'
+    implementation 'io.jmix.data:jmix-eclipselink-starter'
+    implementation 'io.jmix.ui:jmix-ui-starter'
+    implementation 'io.jmix.ui:jmix-ui-data-starter'
+    implementation 'io.jmix.ui:jmix-ui-themes-compiled'
+    implementation 'io.jmix.ui:jmix-ui-widgets-compiled'
+    implementation 'io.jmix.security:jmix-security-starter'
+    implementation 'io.jmix.security:jmix-security-ui-starter'
+    implementation 'io.jmix.security:jmix-security-data-starter'
+    implementation 'io.jmix.localfs:jmix-localfs-starter'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+//    implementation "org.apache.camel.springboot:camel-spring-boot-bom:$camelVersion"
+//    implementation "org.apache.camel.springboot:camel-spring-boot-starter:$camelVersion"
+//    implementation "org.apache.camel.springboot:camel-xchange-starter:$camelVersion"
+
+    implementation 'org.bitcoinj:bitcoinj-core:0.16.1'
+//    implementation 'com.google:bitcoinj:0.11.3'
+    implementation 'org.web3j:core:5.0.0'
+    implementation 'com.wavesplatform:wavesj:1.2.3'
+
+
+    runtimeOnly 'org.hsqldb:hsqldb'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    implementation("io.jmix.rest:jmix-rest-starter")
+    implementation("io.jmix.security:jmix-security-oauth2-starter")
+}
+
+test {
+    useJUnitPlatform()
+}

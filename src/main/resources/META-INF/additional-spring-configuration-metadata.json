@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "xc.blockchain.net",
+      "type": "java.lang.String",
+      "description": "test or main blockchain"
+  }
+] }

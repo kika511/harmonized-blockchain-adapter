@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://ethereumScreen.caption">
+    <layout>
+        <button id="getBalance"/>
+        <hbox>
+            <textField id="addressField" caption="msg://addressField" datatype="string"/>
+            <textField id="valueFiled" caption="msg://valueField" datatype="decimal"/>
+            <button id="sendCoinsBtn" caption="msg://sendCoins"/>
+        </hbox>
+    </layout>
+</window>

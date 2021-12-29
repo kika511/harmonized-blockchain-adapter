@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://wavesScreen.caption">
+    <layout>
+        <button id="testNodeBtn" caption="msg://testNode"/>
+        <button id="getBalanceBtn" caption="msg://getBalance"/>
+        <hbox>
+            <textField id="addressField" caption="msg://addressField" datatype="string"/>
+            <textField id="valueFiled" caption="msg://valueField" datatype="long"/>
+            <button id="sendCoinsBtn" caption="msg://sendCoins"/>
+        </hbox>
+    </layout>
+</window>
