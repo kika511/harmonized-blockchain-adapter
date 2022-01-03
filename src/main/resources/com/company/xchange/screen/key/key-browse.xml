@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://keyBrowse.caption"
+        focusComponent="keysTable">
+    <data readOnly="true">
+        <collection id="keysDc"
+                    class="com.company.xchange.entity.Key">
+            <fetchPlan extends="_base"/>
+            <loader id="keysDl">
+                <query>
+                    <![CDATA[select e from xc_Key e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="keysTable" spacing="true">
+        <filter id="filter"
+                dataLoader="keysDl">
+            <properties include=".*"/>
+        </filter>
+        <table id="keysTable"
+               width="100%"
+               dataContainer="keysDc">
+            <actions>
+<!--                <action id="create" type="create"/>-->
+                <action id="generateKey"/>
+                <action id="view" type="view"/>
+            </actions>
+            <columns>
+                <column id="user"/>
+                <column id="blockchain"/>
+                <column id="publicKey"/>
+                <column id="address"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+<!--                <button id="createBtn" action="keysTable.create"/>-->
+                <button id="generateBtn" action="keysTable.generateKey"/>
+                <button id="view" action="keysTable.view"/>
+            </buttonsPanel>
+        </table>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

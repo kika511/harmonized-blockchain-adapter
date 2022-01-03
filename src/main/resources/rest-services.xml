@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns="http://jmix.io/schema/rest/services">
+    <service name="xc_WavesService">
+<!--        <method name="getBlockchainNode"/>-->
+        <method name="getLastBlock"/>
+        <method name="getLastBlockHeaders"/>
+<!--        <method name="getBalance"/>-->
+    </service>
+    <service name="xc_EthereumService">
+        <method name="getBlockNumber"/>
+<!--        <method name="getBalance"/>-->
+    </service>
+</services>
